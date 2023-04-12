@@ -1,0 +1,58 @@
+<?jelly escape-by-default='true'?>
+<!--
+  - Copyright (c) 2023 Eclipse Foundation. All rights reserved.
+  -
+  - This work is licensed under the terms of the MIT license.
+  - For a copy, see <https://opensource.org/licenses/MIT>.
+  -->
+<j:jelly xmlns:j="jelly:core" xmlns:l="/lib/layout" xmlns:st="jelly:stapler">
+    <l:layout title="SLSA Attestation Data">
+        <j:set var="build" value="${it.run}"/>
+        <j:if test="${build != null}">
+            <st:include page="sidepanel" it="${build}" optional="true"/>
+        </j:if>
+        <l:main-panel>
+            <h1>
+                SLSA Provenance Data
+            </h1>
+            <h3>
+                Artifacts
+            </h3>
+            <div>
+                <ul>
+                    <j:forEach var="subject" items="${it.subjects}">
+                    <li>${subject.workspacePath}, sha256 = ${subject.sha256Digest}</li>
+                    </j:forEach>
+                </ul>
+            </div>
+            <div style="padding-bottom: 20px;"/>
+            <h3>
+                Provenance Attestations
+            </h3>
+            <div>
+                <style>
+                    td {
+                    border: 1px solid #eee;
+                    border-collapse: collapse;
+                    }
+                </style>
+                <table style="padding: 0 10px; padding-top: 5px; width:100%;">
+                    <thead>
+                        <tr>
+                            <th align="left">File</th>
+                            <th align="left">Content</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <j:forEach var="attestation" items="${it.provenanceAttestations}">
+                            <tr>
+                                <td align="left">${attestation.key}</td>
+                                <td align="left"><pre>${attestation.value}</pre></td>
+                            </tr>
+                        </j:forEach>
+                    </tbody>
+                </table>
+            </div>
+        </l:main-panel>
+    </l:layout>
+</j:jelly>
