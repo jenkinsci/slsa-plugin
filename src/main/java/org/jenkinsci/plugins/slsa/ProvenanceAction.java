@@ -39,7 +39,7 @@ public class ProvenanceAction implements RunAction2 {
 
     @Override
     public String getIconFileName() {
-        return "/plugin/slsa-provenance/icons/slsa-logo.png";
+        return "/plugin/slsa/icons/slsa-logo.png";
     }
 
     @Override

@@ -9,7 +9,8 @@
         <relativePath />
     </parent>
 
-    <artifactId>slsa-provenance</artifactId>
+    <groupId>io.jenkins.plugins</groupId>
+    <artifactId>slsa</artifactId>
     <version>${revision}${changelist}</version>
     <name>SLSA Provenance Attestation Plugin</name>
 
@@ -34,6 +35,13 @@
             <url>https://opensource.org/licenses/MIT</url>
         </license>
     </licenses>
+
+    <scm>
+        <connection>scm:git:https://github.com/netomi/slsa-jenkins-plugin</connection>
+        <developerConnection>scm:git:https://github.com/netomi/slsa-jenkins-plugin</developerConnection>
+        <tag>${scmTag}</tag>
+        <url>https://github.com/netomi/slsa-jenkins-plugin</url>
+    </scm>
 
     <properties>
         <revision>0.1.0</revision>
