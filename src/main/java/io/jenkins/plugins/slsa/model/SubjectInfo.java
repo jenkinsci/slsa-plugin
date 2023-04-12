@@ -4,11 +4,11 @@
  * This work is licensed under the terms of the MIT license.
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
-package org.jenkinsci.plugins.slsa.model;
+package io.jenkins.plugins.slsa.model;
 
 import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.FilePath;
-import org.jenkinsci.plugins.slsa.util.Digest;
+import io.jenkins.plugins.slsa.util.Digest;
 
 import java.io.IOException;
 

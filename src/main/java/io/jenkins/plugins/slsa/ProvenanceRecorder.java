@@ -4,7 +4,7 @@
  * This work is licensed under the terms of the MIT license.
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
-package org.jenkinsci.plugins.slsa;
+package io.jenkins.plugins.slsa;
 
 import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.EnvVars;
@@ -19,10 +19,10 @@ import org.eclipsefdn.security.slsa.attestation.io.AttestationWriter;
 import org.eclipsefdn.security.slsa.attestation.model.SignedAttestation;
 import org.eclipsefdn.security.slsa.attestation.util.Json;
 import org.jenkinsci.Symbol;
-import org.jenkinsci.plugins.slsa.generator.ProvenanceAttestationGenerator;
-import org.jenkinsci.plugins.slsa.generator.ProvenanceV0_2Generator;
-import org.jenkinsci.plugins.slsa.model.BuildInfo;
-import org.jenkinsci.plugins.slsa.model.SubjectInfo;
+import io.jenkins.plugins.slsa.generator.ProvenanceAttestationGenerator;
+import io.jenkins.plugins.slsa.generator.ProvenanceV0_2Generator;
+import io.jenkins.plugins.slsa.model.BuildInfo;
+import io.jenkins.plugins.slsa.model.SubjectInfo;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;

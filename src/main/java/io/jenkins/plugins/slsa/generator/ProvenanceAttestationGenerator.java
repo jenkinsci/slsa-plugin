@@ -4,11 +4,11 @@
  * This work is licensed under the terms of the MIT license.
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
-package org.jenkinsci.plugins.slsa.generator;
+package io.jenkins.plugins.slsa.generator;
 
 import org.eclipsefdn.security.slsa.attestation.model.SignedAttestation;
-import org.jenkinsci.plugins.slsa.model.BuildInfo;
-import org.jenkinsci.plugins.slsa.model.SubjectInfo;
+import io.jenkins.plugins.slsa.model.BuildInfo;
+import io.jenkins.plugins.slsa.model.SubjectInfo;
 
 import java.util.Collection;
 

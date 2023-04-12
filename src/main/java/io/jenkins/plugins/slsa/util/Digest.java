@@ -4,7 +4,7 @@
  * This work is licensed under the terms of the MIT license.
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
-package org.jenkinsci.plugins.slsa.util;
+package io.jenkins.plugins.slsa.util;
 
 import hudson.remoting.VirtualChannel;
 import jenkins.MasterToSlaveFileCallable;

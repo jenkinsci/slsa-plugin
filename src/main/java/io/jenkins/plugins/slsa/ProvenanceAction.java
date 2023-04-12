@@ -4,11 +4,11 @@
  * This work is licensed under the terms of the MIT license.
  * For a copy, see <https://opensource.org/licenses/MIT>.
  */
-package org.jenkinsci.plugins.slsa;
+package io.jenkins.plugins.slsa;
 
 import hudson.model.Run;
 import jenkins.model.RunAction2;
-import org.jenkinsci.plugins.slsa.model.SubjectInfo;
+import io.jenkins.plugins.slsa.model.SubjectInfo;
 
 import java.util.*;
 
