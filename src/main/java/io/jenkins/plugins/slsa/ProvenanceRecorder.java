@@ -27,6 +27,7 @@ import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
+import org.kohsuke.stapler.verb.POST;
 
 import javax.servlet.ServletException;
 import java.io.IOException;
@@ -142,6 +143,7 @@ public class ProvenanceRecorder extends Recorder implements SimpleBuildStep {
     @Symbol("provenanceRecorder")
     public static final class DescriptorImpl extends BuildStepDescriptor<Publisher> {
 
+        @POST
         public FormValidation doCheckArtifactFilter(@QueryParameter String value, @AncestorInPath Item item) {
             if (item == null) {
                 // no context
@@ -155,6 +157,7 @@ public class ProvenanceRecorder extends Recorder implements SimpleBuildStep {
             return FormValidation.ok();
         }
 
+        @POST
         public FormValidation doCheckTargetDirectory(@QueryParameter String value, @AncestorInPath Item item) {
             if (item == null) {
                 // no context
