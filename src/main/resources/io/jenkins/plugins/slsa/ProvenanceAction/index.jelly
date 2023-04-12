@@ -19,29 +19,29 @@
                 Artifacts
             </h3>
             <div>
-                <ul>
-                    <j:forEach var="subject" items="${it.subjects}">
-                    <li>${subject.workspacePath}, sha256 = ${subject.sha256Digest}</li>
-                    </j:forEach>
-                </ul>
+                <table class="jenkins-table sortable jenkins-!-margin-bottom-0">
+                    <thead>
+                        <th align="left">Artifact</th>
+                        <th align="left">SHA256 Digest</th>
+                    </thead>
+                    <tbody>
+                        <j:forEach var="subject" items="${it.subjects}">
+                            <tr>
+                                <td align="left">${subject.workspacePath}</td>
+                                <td align="left">${subject.sha256Digest}</td>
+                            </tr>
+                        </j:forEach>
+                    </tbody>
+                </table>
             </div>
-            <div style="padding-bottom: 20px;"/>
             <h3>
                 Provenance Attestations
             </h3>
             <div>
-                <style>
-                    td {
-                    border: 1px solid #eee;
-                    border-collapse: collapse;
-                    }
-                </style>
-                <table style="padding: 0 10px; padding-top: 5px; width:100%;">
+                <table class="jenkins-table sortable jenkins-!-margin-bottom-0">
                     <thead>
-                        <tr>
-                            <th align="left">File</th>
-                            <th align="left">Content</th>
-                        </tr>
+                        <th align="left">File</th>
+                        <th align="left">Content</th>
                     </thead>
                     <tbody>
                         <j:forEach var="attestation" items="${it.provenanceAttestations}">
