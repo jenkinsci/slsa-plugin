@@ -23,6 +23,7 @@ import io.jenkins.plugins.slsa.generator.ProvenanceAttestationGenerator;
 import io.jenkins.plugins.slsa.generator.ProvenanceV0_2Generator;
 import io.jenkins.plugins.slsa.model.BuildInfo;
 import io.jenkins.plugins.slsa.model.SubjectInfo;
+import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
@@ -141,15 +142,27 @@ public class ProvenanceRecorder extends Recorder implements SimpleBuildStep {
     @Symbol("provenanceRecorder")
     public static final class DescriptorImpl extends BuildStepDescriptor<Publisher> {
 
-        public FormValidation doCheckArtifactFilter(@QueryParameter String value)
-                throws IOException, ServletException {
+        public FormValidation doCheckArtifactFilter(@QueryParameter String value, @AncestorInPath Item item) {
+            if (item == null) {
+                // no context
+                return FormValidation.ok();
+            }
+
+            item.checkPermission(Item.CONFIGURE);
+
             if (value.length() == 0)
                 return FormValidation.error(Messages.ProvenanceRecorder_DescriptorImpl_errors_missingArtifactFilter());
             return FormValidation.ok();
         }
 
-        public FormValidation doCheckTargetDirectory(@QueryParameter String value)
-                throws IOException, ServletException {
+        public FormValidation doCheckTargetDirectory(@QueryParameter String value, @AncestorInPath Item item) {
+            if (item == null) {
+                // no context
+                return FormValidation.ok();
+            }
+
+            item.checkPermission(Item.CONFIGURE);
+
             if (value.length() == 0)
                 return FormValidation.error(Messages.ProvenanceRecorder_DescriptorImpl_errors_missingTargetDirectory());
             return FormValidation.ok();
