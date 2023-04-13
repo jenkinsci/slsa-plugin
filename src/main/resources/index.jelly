@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    This plug-in generates provenance attestations for build artifacts in <a href="https://slsa.dev/provenance">SLSA</a> format.
+    Plugin to generate provenance attestations for build artifacts in <a href="https://slsa.dev/provenance">SLSA</a> format.
 </div>
