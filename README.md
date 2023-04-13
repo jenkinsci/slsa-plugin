@@ -1,5 +1,5 @@
 [![GitHub Actions](https://github.com/netomi/slsa-jenkins-plugin/workflows/GitHub%20CI/badge.svg?branch=main)](https://github.com/netomi/slsa-jenkins-plugin/actions)
-[![License](https://img.shields.io/badge/license-mit-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 # SLSA Jenkins Plugin
 
