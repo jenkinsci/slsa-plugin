@@ -6,6 +6,7 @@
  */
 package io.jenkins.plugins.slsa.generator;
 
+import io.jenkins.plugins.slsa.PluginVersion;
 import org.eclipsefdn.security.slsa.attestation.model.SignedAttestation;
 import org.eclipsefdn.security.slsa.attestation.model.slsa.ProvenanceStatement;
 import org.eclipsefdn.security.slsa.attestation.model.slsa.Subject;
@@ -20,8 +21,8 @@ import java.util.Map;
 
 public class ProvenanceV0_2Generator implements ProvenanceAttestationGenerator {
 
-    public static final String BUILD_TYPE = "https://gitlab.eclipse.org/eclipsefdn/security/slsa-jenkins-plugin@v0.1";
-    public static final String BUILDER_ID = "https://gitlab.eclipse.org/eclipsefdn/security/slsa-jenkins-plugin@v0.1";
+    public static final String BUILD_TYPE = "https://gitlab.eclipse.org/eclipsefdn/security/slsa-jenkins-plugin@v" + PluginVersion.VERSION;
+    public static final String BUILDER_ID = "https://gitlab.eclipse.org/eclipsefdn/security/slsa-jenkins-plugin@v" + PluginVersion.VERSION;
 
     public SignedAttestation generateAttestation(Collection<SubjectInfo> subjects, BuildInfo buildInfo) {
 

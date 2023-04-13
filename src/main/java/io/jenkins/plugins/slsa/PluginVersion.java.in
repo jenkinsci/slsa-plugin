@@ -1,0 +1,12 @@
+package @package@;
+
+/**
+ * Automatically generated from PluginVersion.java.in during
+ * pluginVersion-generate execution of maven-replacer-plugin in
+ * pom.xml.
+ */
+public final class PluginVersion {
+    public final static String VERSION = "@projectversion@";
+
+    private PluginVersion() {}
+}

@@ -49,8 +49,79 @@
 
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
         <jenkins.version>2.361.4</jenkins.version>
+        <replacer.version>1.5.2</replacer.version>
+
+        <generatedSourcesDir>${project.build.directory}/generated-sources</generatedSourcesDir>
+
+        <pluginVersion.dir>io/jenkins/plugins/slsa</pluginVersion.dir>
+        <pluginVersion.package>io.jenkins.plugins.slsa</pluginVersion.package>
+
+        <pluginVersion.template.input>
+            ${basedir}/src/main/java/${pluginVersion.dir}/PluginVersion.java.in
+        </pluginVersion.template.input>
+        <pluginVersion.template.output>
+            ${generatedSourcesDir}/${pluginVersion.dir}/PluginVersion.java
+        </pluginVersion.template.output>
     </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>${replacer.version}</version>
+                <executions>
+                    <execution>
+                        <id>process-pluginVersion</id>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <file>${pluginVersion.template.input}</file>
+                    <outputFile>${pluginVersion.template.output}</outputFile>
+                    <replacements>
+                        <replacement>
+                            <token>@package@</token>
+                            <value>${pluginVersion.package}</value>
+                        </replacement>
+                        <replacement>
+                            <token>@projectversion@</token>
+                            <value>${project.version}</value>
+                        </replacement>
+                        <replacement>
+                            <token>@projectgroupid@</token>
+                            <value>${project.groupId}</value>
+                        </replacement>
+                        <replacement>
+                            <token>@projectartifactid@</token>
+                            <value>${project.artifactId}</value>
+                        </replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>add-generated-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${generatedSourcesDir}</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -106,6 +177,7 @@
             <url>https://repo.eclipse.org/content/repositories/slsa-tools/</url>
         </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>repo.jenkins-ci.org</id>
