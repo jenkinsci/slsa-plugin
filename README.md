@@ -1,28 +1,24 @@
-# slsa-jenkins-plugin
+[![GitHub Actions](https://github.com/netomi/slsa-jenkins-plugin/workflows/GitHub%20CI/badge.svg?branch=main)](https://github.com/netomi/slsa-jenkins-plugin/actions)
+[![License](https://img.shields.io/badge/license-mit-brightgreen.svg)](LICENSE)
 
-## Introduction
+# SLSA Jenkins Plugin
 
-TODO Describe what your plugin does here
+The SLSA Jenkins plugin generates [SLSA provenance attestations](https://slsa.dev/provenance/) for artifacts
+generated during a build.
 
-## Getting started
+## Job configuration
 
-TODO Tell users how to configure your plugin here, include screenshots, pipeline examples and 
-configuration-as-code examples.
+The plugin provides a ```Post-build action``` which will generate provenance attestations
+(`<artifact-name>.intoto.jsonl` | `multiple.intoto.jsonl`) in SLSA format for configured artifacts
+after a successful build.
 
-## Issues
+![job configuration](docs/images/jenkins-job-configuration.png)
 
-TODO Decide where you're going to host your issues, the default is Jenkins JIRA, but you can also enable GitHub issues,
-If you use GitHub issues there's no need for this section; else add the following line:
+**Artifact Filter**: Specifies the artifacts to include.
 
-Report issues and enhancements in the [Jenkins issue tracker](https://issues.jenkins-ci.org/).
-
-## Contributing
-
-TODO review the default [CONTRIBUTING](https://github.com/jenkinsci/.github/blob/master/CONTRIBUTING.md) file and make sure it is appropriate for your plugin, if not then add your own one adapted from the base file
-
-Refer to our [contribution guidelines](https://github.com/jenkinsci/.github/blob/master/CONTRIBUTING.md)
+**Target Directory**: Specifies the directory to which the generated provenance attestion should be stored.
 
 ## LICENSE
 
-Licensed under MIT, see [LICENSE](LICENSE.md)
+Licensed under MIT, see [LICENSE](LICENSE)
 
