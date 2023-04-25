@@ -7,11 +7,15 @@
 package io.jenkins.plugins.slsa.model;
 
 import hudson.EnvVars;
+import hudson.model.Action;
 import hudson.model.Run;
+import hudson.plugins.git.Revision;
+import hudson.plugins.git.util.BuildData;
 
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.util.List;
 
 public class BuildInfo {
 
@@ -44,6 +48,23 @@ public class BuildInfo {
             sourceUrl = "git+" + gitUrl + "@" + env.get("GIT_BRANCH");
             sourceDigestAlgorithm = "sha1";
             sourceDigest = env.get("GIT_COMMIT");
+        } else {
+            List<? extends Action> actionList = run.getAllActions();
+            for (Action action : actionList) {
+                if (action.getClass().getName().equals("hudson.plugins.git.util.BuildData")) {
+                    String url = ((BuildData) action).getRemoteUrls().stream().findFirst().orElseThrow();
+
+                    Revision revision = ((BuildData) action).getLastBuiltRevision();
+                    if (revision != null) {
+                        String branch = revision.getBranches().stream().findFirst().orElseThrow().getName();
+
+                        sourceUrl = "git+" + url + "@" + branch;
+
+                        sourceDigestAlgorithm = "sha1";
+                        sourceDigest = revision.getSha1String();
+                    }
+                }
+            }
         }
 
         String jobName  = env.get("JOB_NAME");

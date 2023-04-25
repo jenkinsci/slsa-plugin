@@ -12,6 +12,10 @@ import hudson.Extension;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.*;
+import hudson.plugins.git.GitSCM;
+import hudson.plugins.git.UserRemoteConfig;
+import hudson.scm.SCM;
+import hudson.scm.SCMRevisionState;
 import hudson.tasks.*;
 import hudson.util.FormValidation;
 import jenkins.tasks.SimpleBuildStep;
@@ -23,18 +27,19 @@ import io.jenkins.plugins.slsa.generator.ProvenanceAttestationGenerator;
 import io.jenkins.plugins.slsa.generator.ProvenanceV0_2Generator;
 import io.jenkins.plugins.slsa.model.BuildInfo;
 import io.jenkins.plugins.slsa.model.SubjectInfo;
+import org.jenkinsci.plugins.workflow.job.WorkflowRun;
 import org.kohsuke.stapler.AncestorInPath;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.DataBoundSetter;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.verb.POST;
 
-import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 
 public class ProvenanceRecorder extends Recorder implements SimpleBuildStep {
 
@@ -113,7 +118,7 @@ public class ProvenanceRecorder extends Recorder implements SimpleBuildStep {
 
         console.println("[slsa] generating attestation");
 
-        BuildInfo buildInfo = BuildInfo.of(run, env);
+    BuildInfo buildInfo = BuildInfo.of(run, env);
 
         ProvenanceAttestationGenerator generator = new ProvenanceV0_2Generator();
         SignedAttestation attestation = generator.generateAttestation(subjects, buildInfo);
