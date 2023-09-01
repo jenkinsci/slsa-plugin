@@ -139,7 +139,7 @@
         <dependency>
             <groupId>org.eclipsefdn.security.slsa</groupId>
             <artifactId>attestation</artifactId>
-            <version>0.1-SNAPSHOT</version>
+            <version>0.1</version>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
