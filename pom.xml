@@ -24,8 +24,9 @@
 
     <developers>
         <developer>
-            <name>Thomas Neidhart</name>
             <id>netomi</id>
+            <name>Thomas Neidhart</name>
+            <email>thomas.neidhart@eclipse-foundation.org</email>
         </developer>
     </developers>
 
