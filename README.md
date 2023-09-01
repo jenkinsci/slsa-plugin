@@ -44,5 +44,5 @@ post {
 
 ## LICENSE
 
-Licensed under MIT, see [LICENSE](LICENSE)
+Licensed under MIT, see [LICENSE](LICENSE).
 
