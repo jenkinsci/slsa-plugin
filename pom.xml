@@ -11,7 +11,7 @@
 
     <groupId>io.jenkins.plugins</groupId>
     <artifactId>slsa</artifactId>
-    <version>${revision}${changelist}</version>
+    <version>${changelist}</version>
     <name>SLSA Provenance Attestation Plugin</name>
 
     <packaging>hpi</packaging>
@@ -37,15 +37,14 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:https://github.com/netomi/slsa-jenkins-plugin</connection>
-        <developerConnection>scm:git:https://github.com/netomi/slsa-jenkins-plugin</developerConnection>
+        <connection>scm:git:https://github.com/jenkinsci/slsa-plugin</connection>
+        <developerConnection>scm:git:https://github.com/jenkinsci/slsa-plugin</developerConnection>
         <tag>${scmTag}</tag>
-        <url>https://github.com/netomi/slsa-jenkins-plugin</url>
+        <url>https://github.com/jenkinsci/slsa-plugin</url>
     </scm>
 
     <properties>
-        <revision>0.1.0</revision>
-        <changelist>-SNAPSHOT</changelist>
+        <changelist>999999-SNAPSHOT</changelist>
 
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
         <jenkins.version>2.361.4</jenkins.version>
