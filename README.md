@@ -1,4 +1,8 @@
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Jenkins Plugin](https://img.shields.io/jenkins/plugin/v/slsa.svg)](https://plugins.jenkins.io/slsa)
+[![GitHub release](https://img.shields.io/github/release/jenkinsci/slsa-plugin.svg?label=release)](https://github.com/jenkinsci/slsa-plugin/releases/latest)
+[![Jenkins Plugin Installs](https://img.shields.io/jenkins/plugin/i/slsa.svg?color=blue)](https://plugins.jenkins.io/slsa)
+[![Build Status](https://ci.jenkins.io/buildStatus/icon?job=Plugins%2Fslsa-plugin%2Fmain)](https://ci.jenkins.io/job/Plugins/job/slsa-plugin/job/main/)
+[![GitHub license](https://img.shields.io/github/license/jenkinsci/slsa-plugin.svg)](https://github.com/jenkinsci/slsa-plugin/blob/master/LICENSE)
 
 # SLSA Jenkins Plugin
 
