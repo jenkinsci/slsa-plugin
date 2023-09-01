@@ -48,7 +48,7 @@
 
         <!-- https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/ -->
         <jenkins.version>2.361.4</jenkins.version>
-        <replacer.version>1.5.2</replacer.version>
+        <replacer.version>1.5.3</replacer.version>
 
         <generatedSourcesDir>${project.build.directory}/generated-sources</generatedSourcesDir>
 
