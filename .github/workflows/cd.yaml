@@ -7,10 +7,6 @@ on:
     types:
       - completed
 
-concurrency:
-  group: cd-${{ github.ref }}
-  cancel-in-progress: true
-
 permissions:
   checks: read
   contents: write
