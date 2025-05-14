@@ -8,17 +8,23 @@ package io.jenkins.plugins.slsa;
 
 import hudson.model.FreeStyleBuild;
 import hudson.model.FreeStyleProject;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.jvnet.hudson.test.JenkinsRule;
+import org.jvnet.hudson.test.junit.jupiter.WithJenkins;
 
-public class ProvenanceRecorderTest {
+@WithJenkins
+class ProvenanceRecorderTest {
 
-    @Rule
-    public JenkinsRule jenkins = new JenkinsRule();
+    private JenkinsRule jenkins;
+
+    @BeforeEach
+    void setUp(JenkinsRule rule) {
+        jenkins = rule;
+    }
 
     @Test
-    public void testConfigRoundtrip() throws Exception {
+    void testConfigRoundtrip() throws Exception {
         FreeStyleProject project = jenkins.createFreeStyleProject();
         project.getPublishersList().add(new ProvenanceRecorder("**.jar", "build/slsa"));
         project = jenkins.configRoundtrip(project);
@@ -26,7 +32,7 @@ public class ProvenanceRecorderTest {
     }
 
     @Test
-    public void testBuild() throws Exception {
+    void testBuild() throws Exception {
         FreeStyleProject project = jenkins.createFreeStyleProject();
         ProvenanceRecorder recorder = new ProvenanceRecorder("**.jar", "build/slsa");
         project.getPublishersList().add(recorder);
