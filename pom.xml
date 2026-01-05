@@ -52,6 +52,8 @@
         <jenkins.version>${jenkins.baseline}.3</jenkins.version>
         <replacer.version>1.5.3</replacer.version>
 
+        <ban-junit4-imports.skip>false</ban-junit4-imports.skip>
+        
         <generatedSourcesDir>${project.build.directory}/generated-sources</generatedSourcesDir>
 
         <pluginVersion.dir>io/jenkins/plugins/slsa</pluginVersion.dir>
